@@ -1,0 +1,112 @@
+{
+  "kind": "collectionType",
+  "collectionName": "scuole",
+  "info": {
+    "singularName": "scuola",
+    "pluralName": "scuole",
+    "displayName": "scuola",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nome": {
+      "type": "string"
+    },
+    "Longitudine": {
+      "type": "float"
+    },
+    "Latitudine": {
+      "type": "float"
+    },
+    "Link_Sito": {
+      "type": "string"
+    },
+    "Citta": {
+      "type": "string"
+    },
+    "Indirizzo": {
+      "type": "string"
+    },
+    "percorsi_di_studi": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::percorso-studi.percorso-studi",
+      "mappedBy": "scuola"
+    },
+    "Tipo": {
+      "type": "enumeration",
+      "enum": [
+        "Liceo",
+        "Istituto Tecnico",
+        "Istituto Professionale",
+        "Scuola Professionale"
+      ]
+    },
+    "open_days": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::open-day.open-day",
+      "mappedBy": "scuola"
+    },
+    "Video": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "succursali": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::succursale.succursale",
+      "mappedBy": "scuola"
+    },
+    "Durata": {
+      "type": "string"
+    },
+    "istituto": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::istituto.istituto",
+      "inversedBy": "scuole"
+    },
+    "CAP": {
+      "type": "string"
+    },
+    "Provincia": {
+      "type": "string"
+    },
+    "Telefono": {
+      "type": "string"
+    },
+    "Fax": {
+      "type": "string"
+    },
+    "PEC": {
+      "type": "string"
+    },
+    "Email": {
+      "type": "string"
+    },
+    "Logo": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Descrizione": {
+      "type": "blocks"
+    }
+  }
+}

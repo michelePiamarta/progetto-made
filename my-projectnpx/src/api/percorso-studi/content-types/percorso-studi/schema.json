@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "percorsi_studi",
+  "info": {
+    "singularName": "percorso-studi",
+    "pluralName": "percorsi-studi",
+    "displayName": "PercorsoStudi",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nome": {
+      "type": "string"
+    },
+    "scuola": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::scuola.scuola",
+      "inversedBy": "percorsi_di_studi"
+    },
+    "Durata": {
+      "type": "string"
+    },
+    "Descrizione": {
+      "type": "blocks"
+    }
+  }
+}

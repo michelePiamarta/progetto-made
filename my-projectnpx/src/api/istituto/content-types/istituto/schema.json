@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "istituti",
+  "info": {
+    "singularName": "istituto",
+    "pluralName": "istituti",
+    "displayName": "Istituto",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Nome": {
+      "type": "string"
+    },
+    "scuole": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::scuola.scuola",
+      "mappedBy": "istituto"
+    },
+    "Descrizione": {
+      "type": "blocks"
+    }
+  }
+}

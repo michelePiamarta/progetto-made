@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "succursali",
+  "info": {
+    "singularName": "succursale",
+    "pluralName": "succursali",
+    "displayName": "Succursale",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Longitudine": {
+      "type": "float"
+    },
+    "Latitudine": {
+      "type": "float"
+    },
+    "scuola": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::scuola.scuola",
+      "inversedBy": "succursali"
+    },
+    "Nome": {
+      "type": "string"
+    },
+    "Citta": {
+      "type": "string"
+    },
+    "Indirizzo": {
+      "type": "string"
+    },
+    "CAP": {
+      "type": "string"
+    },
+    "Telefono": {
+      "type": "string"
+    }
+  }
+}

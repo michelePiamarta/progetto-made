@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "open_days",
+  "info": {
+    "singularName": "open-day",
+    "pluralName": "open-days",
+    "displayName": "OpenDay",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Data": {
+      "type": "date"
+    },
+    "scuola": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::scuola.scuola",
+      "inversedBy": "open_days"
+    },
+    "Descrizione": {
+      "type": "blocks"
+    },
+    "Inizio": {
+      "type": "time"
+    },
+    "Fine": {
+      "type": "time"
+    },
+    "Note": {
+      "type": "string"
+    }
+  }
+}
