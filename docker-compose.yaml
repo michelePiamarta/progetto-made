@@ -1,0 +1,24 @@
+version: '3.9'
+
+services:
+  strapi:
+    container_name: strapi
+    build: ./my-projectnpx
+    image: strapi:latest   
+    volumes:
+      - ./my-projectnpx/config:/opt/app/config
+      - ./my-projectnpx/src:/opt/app/src
+      - ./my-projectnpx/package.json:/opt/package.json
+      - ./my-projectnpx/yarn.lock:/opt/yarn.lock
+      - ./my-projectnpx/.env:/opt/app/.env
+      - ./my-projectnpx/public/uploads:/opt/app/public/uploads
+      - ./my-projectnpx/.tmp:/opt/app/.tmp
+    ports:
+      - "1338:1337"    
+    
+  frontend:
+    build: ./Progetto
+    container_name: frontend
+    ports:
+      - "8080:80"
+

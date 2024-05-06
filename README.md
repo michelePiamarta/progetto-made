@@ -1,2 +1,6 @@
-# progetto-made-server
-progetto made
+# Tecnologie Usate
+ - ## Strapi
+ - ## HTML-CSS-JAVASCRIPT
+ - ## Docker
+# Avviare server
+> ```docker-compose up```
