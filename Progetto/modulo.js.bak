@@ -1,0 +1,91 @@
+var paroleChiave = {
+    "domanda 1: creatività": { scuola: "liceo artistico", punteggio: 2 },
+    "domanda 2: immaginazione": { scuola: "liceo artistico", punteggio: 2 },
+    "domanda 3: disegnare": { scuola: "liceo artistico", punteggio: 2 },
+    "domanda 4: grafica": { scuola: "liceo artistico", punteggio: 2 },
+    "domanda 5: scientifico": { scuola: "liceo scientifico", punteggio: 1 },
+    // Aggiungi altre parole chiave e scuole qui
+};
+
+var submitBtn = document.querySelector('.search-box button[type="submit"]');
+
+function calcolaPunteggio(){
+	console.log("caa");
+	 var sliders = document.querySelectorAll('.slider');
+    var punteggioScuole = {}; // Memorizza i punteggi totali delle scuole
+    sliders.forEach(function(slider) {
+        var value = parseInt(slider.value);
+        var keyword = slider.previousElementSibling.textContent.toLowerCase(); // Ottieni il testo della domanda e trasformalo in minuscolo
+        if (value === 5) { // Considera solo la posizione più a destra della barra di scorrimento
+            if (paroleChiave[keyword]) {
+                var scuola = paroleChiave[keyword].scuola;
+                var punteggio = paroleChiave[keyword].punteggio;
+                punteggioScuole[scuola] = (punteggioScuole[scuola] || 0) + punteggio; // Aggiungi il punteggio alla scuola corrispondente
+            }
+        }
+    });
+   console.log(punteggioScuole);
+    var scuolaVincente = determinaScuolaVincente(punteggioScuole);
+
+    // Reindirizza l'utente alla scuola vincente
+    if (scuolaVincente) {
+        reindirizzaUtente(scuolaVincente);
+    } else {
+        alert("Si prega di rispondere alle domande per completare il questionario.");
+    }
+}
+
+submitBtn.addEventListener('click', function() {
+    var sliders = document.querySelectorAll('.slider');
+    var punteggioScuole = {}; // Memorizza i punteggi totali delle scuole
+    sliders.forEach(function(slider) {
+        var value = parseInt(slider.value);
+        var keyword = slider.previousElementSibling.textContent.toLowerCase(); // Ottieni il testo della domanda e trasformalo in minuscolo
+        if (value === 5) { // Considera solo la posizione più a destra della barra di scorrimento
+            if (paroleChiave[keyword]) {
+                var scuola = paroleChiave[keyword].scuola;
+                var punteggio = paroleChiave[keyword].punteggio;
+                punteggioScuole[scuola] = (punteggioScuole[scuola] || 0) + punteggio; // Aggiungi il punteggio alla scuola corrispondente
+            }
+        }
+    });
+   console.log('we');
+    // Determina la scuola con il punteggio più alto
+    var scuolaVincente = determinaScuolaVincente(punteggioScuole);
+
+    // Reindirizza l'utente alla scuola vincente
+    if (scuolaVincente) {
+        reindirizzaUtente(scuolaVincente);
+    } else {
+        alert("Si prega di rispondere alle domande per completare il questionario.");
+    }
+});
+
+function determinaScuolaVincente(punteggioScuole) {
+    var maxPunteggio = 0;
+    var scuolaVincente = null;
+    for (var scuola in punteggioScuole) {
+        if (punteggioScuole[scuola] > maxPunteggio) {
+            maxPunteggio = punteggioScuole[scuola];
+            scuolaVincente = scuola;
+        }
+    }
+    return scuolaVincente;
+}
+
+function reindirizzaUtente(scuola) {
+    // Effettua il reindirizzamento alla pagina della scuola vincente
+    switch (scuola) {
+        case "liceo artistico":
+            window.location.href = "https://www.istitutodellearti.tn.it/liceo-depero-rovereto";
+            break;
+        case "liceo scientifico":
+            window.location.href = "https://liceorosmini.eu/";
+            break;
+        // Aggiungi altri casi per altre scuole
+        default:
+            // Reindirizza a una pagina predefinita se la scuola non è stata trovata
+            window.location.href = "https://www.google.it";
+            break;
+    }
+}

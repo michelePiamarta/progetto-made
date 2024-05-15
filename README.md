@@ -2,5 +2,11 @@
  - ## Strapi
  - ## HTML-CSS-JAVASCRIPT
  - ## Docker
-# Avviare server
+# Avviare 
 > ```docker-compose up```
+## Crediti
+ - Marco Xu
+ - Maria Emanuela Sessa
+ - Michele Piamarta
+ - Matteo 
+ - Nicola 
