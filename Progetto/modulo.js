@@ -6,7 +6,7 @@ function scuola(nomeScuola){
             if(scuola.attributes.Nome != null)
                 //console.log(scuola.attributes.Descrizione[0].children[0].text)
                 if(scuola.attributes.Nome == nomeScuola){
-                    window.location.href = "/scuole?id=" + scuola.id
+                    window.location.href = "/scuole.html?id=" + scuola.id
                 }
             }
     })

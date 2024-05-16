@@ -1,0 +1,90 @@
+<html>
+
+<head>
+    <title>OpenLayers Marker Popups</title>
+</head>
+
+<body>
+    <div id="mapdiv"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/openlayers/2.11/lib/OpenLayers.js"></script>
+    <script>
+        //alcuni dati di esempio da posizionare sulla mappa
+        var db = {
+            "dati": [
+
+                { "latitudine": "45.910963", "longitudine": "11.041889", "descrizione": "ITT 'G.Marconi'" },
+                { "latitudine": "45.887396", "longitudine": "11.045954", "descrizione": "Depero" },
+                { "latitudine": "45.90781183519294", "longitudine": " 11.041991453874886", "descrizione": "Rosmini" },
+                { "latitudine": "45.891338021307575", "longitudine": " 11.038216156791465", "descrizione": "Filzi" },
+                { "latitudine": "45.889851165109405", "longitudine": "11.031920138606413", "descrizione": "MADE" },
+                { "latitudine": "45.89829933523765", "longitudine": " 11.036258237210625", "descrizione": "UPT" },
+                { "latitudine": " 45.890713446962785", "longitudine": "11.047616993030978", "descrizione": "chuochi" },
+                { "latitudine": "   45.88745420252157", "longitudine": " 11.042299667623322", "descrizione": "parrucchieri" },
+                { "latitudine": "45.891594519329", "longitudine": "11.034850847069185", "descrizione": "lacacca" },
+                { "latitudine": " 45.89357884801936", "longitudine": "11.04194349673301", "descrizione": "IragionieriFalliti" },
+                { "latitudine": " 45.89699550661613", "longitudine": "11.043407516046429", "descrizione": "Iricchi" },
+                { "latitudine": "45.895461604072636", "longitudine": "11.031479676876033", "descrizione": "GLI OSS" },
+                { "latitudine": " 45.882593937886966", "longitudine": "11.043262923717268", "descrizione": "IRCCHIPIùRICCHI" },
+            ]
+        };
+        // creazione della mappa
+        map = new OpenLayers.Map("mapdiv");
+        map.addLayer(new OpenLayers.Layer.OSM());
+
+        // conversione del sistema di riferimento/proiezione
+        epsg4326 = new OpenLayers.Projection("EPSG:4326"); //WGS 1984 projection
+        projectTo = map.getProjectionObject(); //The map projection (Spherical Mercator)
+
+        var lonLat = new OpenLayers.LonLat(11.0339548, 45.8891176).transform(epsg4326, projectTo);
+
+        // visualizzazione della mappa con relativo zoom
+        var zoom = 13;
+        map.setCenter(lonLat, zoom);
+        //--------------------------------------------------------------------------------------------------------------------------
+        // livello dove posizionare i 'markers'
+        var vectorLayer = new OpenLayers.Layer.Vector("Overlay");
+
+        // lettura dei dati, posizionamento alle coordinate di latitudine e longitudine
+        for (var i = 0; i < db.dati.length; i++) {
+            // Define markers as "features" of the vector layer:
+            var feature = new OpenLayers.Feature.Vector(
+                new OpenLayers.Geometry.Point(db.dati[i].longitudine, db.dati[i].latitudine).transform(epsg4326, projectTo),
+                { description: db.dati[i].descrizione },
+                { externalGraphic: 'marker.png', graphicHeight: 25, graphicWidth: 21, graphicXOffset: -12, graphicYOffset: -25 }
+            );
+            vectorLayer.addFeatures(feature);
+        }
+        // viene aggiunto un nuovo livello alla mappa (livello dei marker)
+        map.addLayer(vectorLayer);
+        //--------------------------------------------------------------------------------------------------------------------------
+        // gestione dei popup al clic del mouse 
+        //Add a selector control to the vectorLayer with popup functions
+        var controls = {
+            selector: new OpenLayers.Control.SelectFeature(vectorLayer, { onSelect: createPopup, onUnselect: destroyPopup })
+        };
+
+        function createPopup(feature) {
+            feature.popup = new OpenLayers.Popup.FramedCloud("pop",
+                feature.geometry.getBounds().getCenterLonLat(),
+                null,
+                '<div class="markerContent">' + feature.attributes.description + '</div>',
+                null,
+                true,
+                function () { controls['selector'].unselectAll(); }
+            );
+            //feature.popup.closeOnMove = true;
+            map.addPopup(feature.popup);
+        }
+
+        function destroyPopup(feature) {
+            feature.popup.destroy();
+            feature.popup = null;
+        }
+
+        map.addControl(controls['selector']);
+        controls['selector'].activate();
+        //----------------------------------------------------------------------------------------------------------------------------  
+    </script>
+</body>
+
+</html>

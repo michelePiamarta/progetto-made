@@ -1,0 +1,170 @@
+/* Importazione del font */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+/* Stile per l'header */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Stile per l'header */
+header {
+  background-color: #ffffff;
+  padding: 10px;
+  color: rgb(0, 0, 0);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Stile del logo */
+.logo img {
+  width: 50px;
+}
+
+/* Stile della barra di navigazione */
+.navbar {
+  display: flex;
+}
+
+/* Stile della lista dei link */
+.nav-links {
+  list-style-type: none;
+  display: flex;
+}
+
+/* Stile dell'elemento della lista */
+.nav-item {
+  margin-right: 200px;
+}
+
+/* Stile del link */
+.nav-link {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  padding: 10px;
+  position: relative;
+  right: 20vw;
+  left: 6.5vw;
+}
+
+/* Stile del dropdown */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  min-width: 160px;
+  z-index: 1;
+ 
+}
+
+/* Stile dei link nel dropdown */
+.dropdown-content a {
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  text-decoration: none;
+  display: block;
+
+}
+
+/* Stile del link quando si passa sopra */
+.nav-link:hover {
+  background-color: #757070;
+}
+
+/* Stile del dropdown quando il link è attivo */
+.nav-item:hover .dropdown-content {
+  display: block;
+}
+
+/* Stile dei dropdown nidificati */
+.nested-dropdown {
+  position: relative;
+}
+
+/* Stile del dropdown nidificato */
+.nested-dropdown-content {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background-color: #333;
+  min-width: 160px;
+  z-index: 1;
+}
+
+/* Stile del dropdown nidificato quando il dropdown padre è attivo */
+.nested-dropdown:hover .nested-dropdown-content {
+  display: block;
+}
+
+/* Stile della barra di ricerca */
+.search-container {
+  display: flex;
+}
+
+/* Stile dell'input di ricerca */
+.search-container input[type="text"] {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+/* Stile del pulsante di ricerca */
+.search-container button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #FFDD00;;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Stile del pulsante di ricerca al passaggio del mouse */
+.search-container button[type="submit"]:hover {
+  background-color: #000000;
+  color: white;
+}
+  .elemento {
+    position:absolute;
+  }
+  
+  .elemento5{
+    font-size: 6vw;
+    top: 18vw;
+    right: 24vw;
+    color: #FFDD00;
+    font-family:"Inter", sans-serif;
+    font-weight: 900;
+  }
+  .elemento6{
+    font-size: 1.5vw;
+    top: 28vw;
+    right: 24vw;
+    left: 20vw;
+    color: #FFDD00;
+    font-family:"Inter", sans-serif;
+    font-weight: 300;
+  
+  }
+  .container-mt-3{
+    background-color: #333;
+    left: 20vw;
+  }
+  .pagination{
+    background-color: #333;
+    left: 20vw;
+  }
+  .page-item{
+    background-color: #333;
+    left: 20vw;
+  }
+  .page-link{
+    background-color: #333;
+    left: 40vw;
+  }
+  .elemento5{
+  
+  }

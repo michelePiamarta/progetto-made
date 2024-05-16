@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8' />
+  <link rel="stylesheet" href="fullcalendar.css">
+  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+  <script>
+
+    let event = [
+      { title: "Liceo Antonio Rosmini", start: "2023-11-18T14:30", end: "2023-11-18T17:30", allDay: false },
+      { title: "Liceo Antonio Rosmini", start: "2023-12-01T20:00", end: "2023-12-01T22:00", allDay: false },
+      { title: "Liceo Antonio Rosmini", start: "2023-12-16T14:30", end: "2023-12-16T17:30", allDay: false },
+      { title: "Liceo Antonio Rosmini", start: "2024-01-13T14:30", end: "2024-01-13T17:30", allDay: false },
+
+      /* {title: "", start:"", end:"", allDay:false}, */
+
+      { title: "Liceo delle scienze umane \"F.Filzi\"", start: "2023-10-27T18:00", end: "2023-10-27T20:00", allDay: false },
+      { title: "Liceo delle scienze umane \"F.Filzi\"", start: "2023-11-09T14:30", end: "2023-11-09T16:30", allDay: false },
+      { title: "Liceo delle scienze umane \"F.Filzi\"", start: "2023-11-18T09:00", end: "2023-11-18T12:00", allDay: false },
+      { title: "Liceo delle scienze umane \"F.Filzi\"", start: "2023-12-02T09:00", end: "2023-12-02T12:00", allDay: false },
+      { title: "Liceo delle scienze umane \"F.Filzi\"", start: "2023-12-12T18:00", end: "2023-12-12T20:00", allDay: false },
+      { title: "Liceo delle scienze umane \"F.Filzi\"", start: "2024-01-13T09:00", end: "2024-01-13T12:00", allDay: false },
+
+      { title: "Istituto d'istruzione \"Don Milani\"", start: "2023-11-25T10:00", end: "2023-11-25T12:30", allDay: false },
+      { title: "Istituto d'istruzione \"Don Milani\"", start: "2023-12-06T18:00", end: "2023-12-06T20:00", allDay: false },
+      { title: "Istituto d'istruzione \"Don Milani\"", start: "2023-12-16T10:00", end: "2023-12-16T12:30", allDay: false },
+      { title: "Istituto d'istruzione \"Don Milani\"", start: "2024-01-13T10:00", end: "2024-01-13T12:30", allDay: false },
+      { title: "Istituto d'istruzione \"Don Milani\"", start: "2024-01-17T18:00", end: "2024-01-17T20:00", allDay: false },
+
+      { title: "Istutito Tecnico Tecnolgico \"G.Marconi\"", start: "2023-11-24T18:00", end: "2023-11-24T20:00", allDay: false },
+      { title: "Istutito Tecnico Tecnolgico \"G.Marconi\"", start: "2023-12-02T15:00", end: "2023-12-02T17:00", allDay: false },
+      { title: "Istutito Tecnico Tecnolgico \"G.Marconi\"", start: "2023-12-15T18:00", end: "2023-12-15T20:00", allDay: false },
+      { title: "Istutito Tecnico Tecnolgico \"G.Marconi\"", start: "2024-01-13T15:00", end: "2024-01-13T17:00", allDay: false },
+
+
+      { title: "ITET Fontana", start: "2023-11-11T09:00", end: "2023-11-11T11:00", allDay: false },
+      { title: "ITET Fontana", start: "2023-11-20T", end: "2023-11-20T", allDay: false },
+      { title: "ITET Fontana", start: "2023-12-14T", end: "2023-12-14T", allDay: false },
+      { title: "ITET Fontana", start: "2024-01-17T", end: "2024-01-17T", allDay: false },
+    ]
+
+
+    let test = [{
+      title: 'My Event',
+      start: '2024-05-03T14:30:00',
+      end: '2024-05-03T23:30:00',
+      allDay: false
+    }]
+
+    document.addEventListener('DOMContentLoaded', function () {
+      let calendarEl = document.getElementById('calendar');
+      let calendar = new FullCalendar.Calendar(calendarEl, {
+        contentHeight: 'auto',
+        initialView: 'timeGridWeek',
+        slotDuration: { hours: 1 }, // forse unpo troppo strecchato
+        headerToolbar: {
+          left: "prev,next today",
+          center: "title",
+          right: "timeGridDay,timeGridWeek,dayGridMonth"
+        },
+        aspectRatio: 2.148,
+        pluigins: ['dayGrid', 'interaction', 'timeGrid'],
+        nowIndicator: true,
+        events: event,
+        windowResize: function(arg) {
+    alert('The calendar has adjusted to a window resize. Current view: ' + arg.view.type);
+  }
+      });
+      calendar.render();
+    });
+
+  </script>
+</head>
+<body>
+    <div id='calendar'></div>
+
+    <div class="container-mt-3">
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="index.html" >home</a></li>
+        <li class="page-item"><a class="page-link" href="scuole.html">1</a></li>
+        <li class="page-item"><a class="page-link" href="scuole2.html">2</a></li>
+        <li class="page-item"><a class="page-link" href="Scuole3.html">3</a></li>
+        <li class="page-item"><a class="page-link" href="scuole2.html">Next</a></li>
+      </ul>
+  </div>
+</body>
+
+</html>

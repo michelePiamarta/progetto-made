@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modulo di Domande</title>
+    <link rel="stylesheet" href="modulo.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li class="logo">
+                    <img src="lol.png " style="width: 30px; height: 30px; border-radius: 40%;" alt="Logo Nike">
+                </li>
+                <li class="dropdown">
+                    <a href="home.html">Home</a>
+                    <div class="dropdown-content">
+                        <a href="#">link</a>
+                        <a href="#">link</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="modulo.html">Modulo</a>
+                    <div class="dropdown-content">
+                        <a href="#">link</a>
+                        <a href="#">link</a>
+                    </div>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">Kids</a>
+                    <div class="dropdown-content">
+                        <a href="#">Boys</a>
+                        <a href="#">Girls</a>
+                    </div>
+                </li>
+                
+                <li><a href="#">Customize</a></li>
+                <div class="search-container">
+                    <div class="search-box">
+                        <input type="text" placeholder="Cerca...">
+                        <button type="submit">Cerca</button>
+                    </div>
+                </div>
+            </ul>
+        </nav>
+    </header>
+<div class="question">
+    <p>Domanda 1: creatività</p>
+    <input type="range" min="1" max="5" value="3" class="slider" id="question1">
+    
+</div>
+<div class="question">
+    <p>Domanda 1: immaginazione</p>
+    <input type="range" min="1" max="5" value="3" class="slider" id="question1">
+   
+</div>
+<div class="question">
+    <p>Domanda 1: disegnare</p>
+    <input type="range" min="1" max="5" value="3" class="slider" id="question1">
+   
+</div>
+<div class="question">
+    <p>Domanda 1: grafica</p>
+    <input type="range" min="1" max="5" value="3" class="slider" id="question1">
+   
+</div>
+<div class="question">
+    <p>Domanda 1: scientifico</p>
+    <input type="range" min="1" max="5" value="3" class="slider" id="question1">
+  
+</div>
+
+    
+
+//<!--<script src="script.js"></script>-->
+<script type="text/javascript" src="modulo.js"></script>
+<div class="search-container">
+    <div class="search-box">
+        <input type="text" placeholder="Cerca...">
+        <button type="submit" onclick="calcolaPunteggio()">>Invia</button>
+    </div>
+</div>
+</body>
+</html>
